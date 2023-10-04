@@ -5,6 +5,8 @@ datasets==2.9.0
 accelerate==0.17.1
 evaluate==0.4.0
 bitsandbytes==0.37.1
+deepspeed
+ninja
 boto3
 loralib 
 # install additional dependencies needed for training
