@@ -41,7 +41,7 @@ def training_function():
     print(f'CUDA available? \n{cuda}')
 
     # huggingface hub model id
-    model_id = "google/flan-t5-xl"
+    model_id = "google/flan-t5-large"
 
     # load model from the hub
     model = AutoModelForSeq2SeqLM.from_pretrained(model_id, load_in_8bit=True, device_map="auto")
@@ -73,7 +73,7 @@ def training_function():
     )
 
     data_path = os.path.join(os.getcwd(), 'data')
-    output_dir="lora-flan-t5-xl"
+    output_dir="lora-flan-t5-large"
     train_dataset = load_from_disk(os.path.join(data_path, 'train'))
     eval_dataset = load_from_disk(os.path.join(data_path, 'test'))
 
@@ -122,7 +122,7 @@ def training_function():
 
     trainer.train()
 
-    save_id = 'lora-flan-t5-xl-uspc'
+    save_id = 'lora-flan-t5-large-uspc'
     trainer.model.save_pretrained(save_id)
     tokenizer.save_pretrained(save_id)
 
